@@ -5,10 +5,10 @@ Utility functions for adding colour codes to strings
 
 def bold(string: str) -> str:
     """Add bold colour codes to string
-    
+
     Args:
         string (str): Input string
-    
+
     Returns:
         str: Bold string
     """
@@ -17,10 +17,10 @@ def bold(string: str) -> str:
 
 def underline(string: str) -> str:
     """Add underline colour codes to string
-    
+
     Args:
         string (str): Input string
-    
+
     Returns:
         str: Underlined string
     """
@@ -29,10 +29,10 @@ def underline(string: str) -> str:
 
 def fail(string: str) -> str:
     """Add fail colour codes to string
-    
+
     Args:
         string (str): Input string
-    
+
     Returns:
         str: Fail string
     """
@@ -41,10 +41,10 @@ def fail(string: str) -> str:
 
 def green(string: str) -> str:
     """Add green colour codes to string
-    
+
     Args:
         string (str): Input string
-    
+
     Returns:
         str: Green string
     """
@@ -53,10 +53,10 @@ def green(string: str) -> str:
 
 def warn(string: str) -> str:
     """Add warn colour codes to string
-    
+
     Args:
         string (str): Input string
-    
+
     Returns:
         str: Warn string
     """
@@ -65,10 +65,10 @@ def warn(string: str) -> str:
 
 def blue(string: str) -> str:
     """Add blue colour codes to string
-    
+
     Args:
         string (str): Input string
-    
+
     Returns:
         str: Blue string
     """
@@ -77,10 +77,10 @@ def blue(string: str) -> str:
 
 def header(string: str) -> str:
     """Add header colour codes to string
-    
+
     Args:
         string (str): Input string
-    
+
     Returns:
         str: Header string
     """

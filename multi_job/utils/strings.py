@@ -8,11 +8,11 @@ from typing import List
 
 def join_paths(a: str, b: str) -> str:
     """Join two paths and return the absolute path of the result
-    
+
     Args:
         a (str): First path
         b (str): Second path
-    
+
     Returns:
         str: Absolute joined path
     """
@@ -26,9 +26,9 @@ def remove_chars(string: str, chars: List[str]) -> str:
     Args:
         string (str): Initial string from which to remove characters
         chars (List[str]): List of characters to remove
-    
+
     Returns:
-        str: String with all instances removed 
+        str: String with all instances removed
     """
     replacements = str.maketrans({c: "" for c in chars})
     return string.translate(replacements)
@@ -37,12 +37,14 @@ def remove_chars(string: str, chars: List[str]) -> str:
 def has_prefix(string: str, prefix: str) -> bool:
     """
     TODO write docstring
-    
+
     Args:
         string (str): [description]
         prefix (str): [description]
-    
+
     Returns:
         bool: [description]
     """
-    return len(string) > len(prefix) and string[: len(prefix)] == prefix
+    return (
+        len(string) > len(prefix) and string[: len(prefix)] == prefix
+    )

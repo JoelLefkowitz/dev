@@ -1,13 +1,14 @@
 import os
 import re
-from random import random
 
 from paramiko import SSHClient
 
-from multi_job.utils.functions import get_optional_from_context
-from multi_job.utils.functions import get_required_from_context
-from multi_job.utils.functions import step
-from multi_job.utils.functions import success_msg
+from multi_job.utils.functions import (
+    get_optional_from_context,
+    get_required_from_context,
+    step,
+    success_msg,
+)
 from scp import scpclient
 
 
@@ -38,12 +39,18 @@ def main(path: str, context: dict) -> str:
         if re.match(re_match_str, file)
     ]
     old_build_numbers = [
-        int(suffix) for suffix in old_build_suffixes if suffix.isdigit()
+        int(suffix)
+        for suffix in old_build_suffixes
+        if suffix.isdigit()
     ]
-    build_number = str(max(old_build_numbers) + 1) if old_build_numbers else "1"
+    build_number = (
+        str(max(old_build_numbers) + 1) if old_build_numbers else "1"
+    )
     image_file = tagged_image_name + "-" + build_number + ".tar.gz"
 
-    step(["docker", "save", "-o", image_file, tagged_image_name], path)
+    step(
+        ["docker", "save", "-o", image_file, tagged_image_name], path
+    )
 
     ssh = SSHClient()
     ssh.load_system_host_keys()
@@ -54,7 +61,10 @@ def main(path: str, context: dict) -> str:
         scp.put(image_file, image_file)
 
     ssh.exec_commands(
-        [f"docker load -i {image_file}", "docker-compose up --force-recreate -d"]
+        [
+            f"docker load -i {image_file}",
+            "docker-compose up --force-recreate -d",
+        ]
     )
     ssh.close()
 

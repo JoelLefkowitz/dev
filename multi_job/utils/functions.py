@@ -1,20 +1,15 @@
 from subprocess import run
-from typing import Any
-from typing import List
-from typing import Tuple
+from typing import Any, List, Tuple
 
-from multi_job.models.exceptions import ArgumentMissing
-from multi_job.models.exceptions import StepError
+from multi_job.models.exceptions import ArgumentMissing, StepError
 
-from .colours import blue
-from .colours import fail
-from .emojis import CROWN
-from .emojis import MUSHROOM
-from .emojis import RICE_BALL
-from .emojis import TOPHAT
+from .colours import blue, fail
+from .emojis import CROWN, MUSHROOM, RICE_BALL, TOPHAT
 
 
-def get_required_from_context(keys: List[str], context: dict) -> Tuple[Any, ...]:
+def get_required_from_context(
+    keys: List[str], context: dict
+) -> Tuple[Any, ...]:
     missing_context = set(keys) - set(context.keys())
     if missing_context:
         msg = (
@@ -23,12 +18,24 @@ def get_required_from_context(keys: List[str], context: dict) -> Tuple[Any, ...]
         )
         raise ArgumentMissing(msg)
     context_values = [context[key] for key in keys]
-    return context_values.pop() if len(context_values) == 1 else context_values
+    return (
+        context_values.pop()
+        if len(context_values) == 1
+        else context_values
+    )
 
 
-def get_optional_from_context(keys: List[str], context: dict) -> Tuple[Any, ...]:
-    context_values = [context[key] if key in context else None for key in keys]
-    return context_values.pop() if len(context_values) == 1 else context_values
+def get_optional_from_context(
+    keys: List[str], context: dict
+) -> Tuple[Any, ...]:
+    context_values = [
+        context[key] if key in context else None for key in keys
+    ]
+    return (
+        context_values.pop()
+        if len(context_values) == 1
+        else context_values
+    )
 
 
 def step(process: List[str], path: str, stdout=None) -> None:

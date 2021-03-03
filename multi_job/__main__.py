@@ -1,8 +1,7 @@
 import os
 import sys
 from operator import itemgetter
-from typing import List
-from typing import Mapping
+from typing import List, Mapping
 
 from multi_job.interface.interface import interface_factory
 from multi_job.models.exceptions import ConfigNotGiven
@@ -12,16 +11,12 @@ from multi_job.models.projects import Project
 from multi_job.models.routines import Routine
 from multi_job.runtime.resolver import resolve
 from multi_job.runtime.runtime import run
-from multi_job.utils.colours import blue
-from multi_job.utils.colours import green
-from multi_job.utils.emojis import MUSHROOM
-from multi_job.utils.emojis import TOPHAT
+from multi_job.utils.colours import blue, green
 from multi_job.utils.emojis import ZAP
 from multi_job.utils.strings import join_paths
 
 package_directory = os.path.realpath(os.path.join(__file__, "../.."))
 sys.path.append(package_directory)
-
 
 
 def entrypoint() -> None:
@@ -34,7 +29,11 @@ def entrypoint() -> None:
         )
     config_path = join_paths(os.getcwd(), sys.argv[1])
     if not os.path.exists(config_path):
-        raise (ConfigNotGiven("You must supply a resolvable configuration path"))
+        raise (
+            ConfigNotGiven(
+                "You must supply a resolvable configuration path"
+            )
+        )
     main(config_path)
 
 
@@ -58,7 +57,9 @@ def main(config_path: str) -> None:
         else []
     )
     cli_params = interface_factory(jobs, projects, routines)
-    processes, options = resolve(jobs, projects, routines, cli_params, config_path)
+    processes, options = resolve(
+        jobs, projects, routines, cli_params, config_path
+    )
     run(processes, options)
 
 
@@ -66,12 +67,12 @@ if __name__ == "__main__":
     entrypoint()
 
 
-
-
-def run(processes: List[Process], options: Mapping[str, bool]) -> None:
-    quiet, silent, check, verbose = itemgetter("quiet", "silent", "check", "verbose")(
-        options
-    )
+def run(
+    processes: List[Process], options: Mapping[str, bool]
+) -> None:
+    quiet, silent, check, verbose = itemgetter(
+        "quiet", "silent", "check", "verbose"
+    )(options)
 
     if not (quiet or silent):
         print(ZAP + blue(" Multi Job ") + ZAP + "\nPlan:")

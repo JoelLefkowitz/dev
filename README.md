@@ -1,6 +1,6 @@
 # Multi job
 
-Job runner for multifaceted projects
+Job runner for multifaceted projects.
 
 ## Status
 

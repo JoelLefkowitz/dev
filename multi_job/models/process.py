@@ -1,6 +1,4 @@
-from abc import ABC
-from abc import abstractmethod
-from abc import abstractproperty
+from abc import ABC, abstractmethod, abstractproperty
 from dataclasses import dataclass
 from subprocess import run
 from typing import Callable

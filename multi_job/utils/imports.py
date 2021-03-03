@@ -13,9 +13,7 @@ def from_path(module_path: str) -> ModuleType:
 
 
 # Put common jobs package into scope
-common_dirs = [
-    path.realpath(path.join(__file__, "../../common"))
-]
+common_dirs = [path.realpath(path.join(__file__, "../../common"))]
 
 
 @dataclass

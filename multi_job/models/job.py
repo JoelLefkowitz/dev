@@ -2,18 +2,15 @@
 Project, Job, Routine and Subprocess classes
 """
 
-from abc import ABC
-from abc import abstractmethod
-from dataclasses import dataclass
-from dataclasses import field
-from typing import Any
-from typing import Callable
-from typing import List
-from typing import Union
+from abc import ABC, abstractmethod
+from dataclasses import dataclass, field
+from typing import Any, Callable, List, Union
 
-from multi_job.models.processes import CommandProcess
-from multi_job.models.processes import FunctionProcess
-from multi_job.models.processes import Process
+from multi_job.models.processes import (
+    CommandProcess,
+    FunctionProcess,
+    Process,
+)
 from multi_job.models.projects import Project
 from multi_job.utils.dicts import override
 from multi_job.utils.imports import from_path
@@ -28,11 +25,15 @@ class Job(ABC):
     targets: Union[str, List[str]] = field(default_factory=list)
     skips: Union[str, List[str]] = field(default_factory=list)
 
-    def resolve_targets(self, projects: List[Project]) -> List[Project]:
+    def resolve_targets(
+        self, projects: List[Project]
+    ) -> List[Project]:
         matches = []
         if self.targets:
             matches = [
-                p for p in projects if p.name in self.targets or self.targets == ["all"]
+                p
+                for p in projects
+                if p.name in self.targets or self.targets == ["all"]
             ]
         elif self.skips:
             matches = [
@@ -48,9 +49,14 @@ class Job(ABC):
         return matches
 
     def resolve_process(
-        self, target: Project, context_overrides: dict, config_path: str
+        self,
+        target: Project,
+        context_overrides: dict,
+        config_path: str,
     ) -> Process:
-        context = override([self.context, context_overrides, target.context])
+        context = override(
+            [self.context, context_overrides, target.context]
+        )
         path = target.abs_path(config_path)
         alias = f"Job: {self.name}, project: {target.name}"
         return self.make_process(context, path, alias, config_path)
@@ -109,4 +115,6 @@ class FunctionJob(Job):
         self, context: dict, path: str, alias: str, config_path: str
     ) -> Process:
         funct = self.get_function(config_path)
-        return FunctionProcess(function=funct, context=context, path=path, alias=alias)
+        return FunctionProcess(
+            function=funct, context=context, path=path, alias=alias
+        )

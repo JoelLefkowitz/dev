@@ -1,11 +1,15 @@
-from multi_job.utils.functions import get_optional_from_context
-from multi_job.utils.functions import get_required_from_context
-from multi_job.utils.functions import step
-from multi_job.utils.functions import success_msg
+from multi_job.utils.functions import (
+    get_optional_from_context,
+    get_required_from_context,
+    step,
+    success_msg,
+)
 
 
 def main(path: str, context: dict) -> str:
-    version, image_name = get_required_from_context(["version", "image_name"], context)
+    version, image_name = get_required_from_context(
+        ["version", "image_name"], context
+    )
     build_args = get_optional_from_context(["build_args"], context)
     name_lst = ["-t", f"{image_name}:{version}"]
     args_lst = []
