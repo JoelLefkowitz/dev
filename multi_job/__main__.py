@@ -1,7 +1,8 @@
 import os
 import sys
 from operator import itemgetter
-from typing import List, Mapping
+from typing import List
+from typing import Mapping
 
 from multi_job.interface.interface import interface_factory
 from multi_job.models.exceptions import ConfigNotGiven
@@ -11,7 +12,8 @@ from multi_job.models.projects import Project
 from multi_job.models.routines import Routine
 from multi_job.runtime.resolver import resolve
 from multi_job.runtime.runtime import run
-from multi_job.utils.colours import blue, green
+from multi_job.utils.colours import blue
+from multi_job.utils.colours import green
 from multi_job.utils.emojis import ZAP
 from multi_job.utils.strings import join_paths
 

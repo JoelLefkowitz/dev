@@ -1,0 +1,51 @@
+output_dir: .
+
+clear_top_level: true
+logical_grouping: true
+
+collections:
+  - common
+  - python
+
+loader_paths:
+  - docs
+
+render_context:
+  project:
+    project_name: multi-job
+    version: 0.10.15
+
+    verbose_name: Multi job
+    description: Job runner for multifaceted projects.
+
+    repository: https://github.com/JoelLefkowitz/multi-job
+    codacy_id: 714cec18d891428cb29fb35216a4a770
+
+    inserts:
+      - usage.md
+
+  author:
+    author: Joel Lefkowitz
+    author_email: joellefkowitz@hotmail.com
+    author_github_handle: joellefkowitz
+
+  package:
+    is_pypi_package: true
+    package_name: multi_job
+
+    console_scripts:
+      - "multi-job = multi-job.__main__:main"
+
+  portfolio:
+    is_portfolio: true
+    status_level: 2
+
+    languages:
+      - Python
+
+    paradigms:
+      - Object oriented programming
+
+  public_keys:
+    travis_pypi: gVwZUM15I+c/AW4N4IER7yLa77hlIeogt5gvXz8sJzWjjwJhOIDW5FXi4t/c8fqpylt2CKusiKiSZziOeeMPcI+8e9wz6rTBzId6QsytGcCxFxUzQtXRxz0nEUpM+NPLDehXc6Ca4lxHE1P9wSr8RsbPivWfMmA4+DDMjBeS6tjQS3XOyu6sWxArOodimBSu+m1mMWGxvVsizxzolS9VLuf04cy2IehV1RjrN3baggn9vGE7JXJd9ZBdJ980SD1JfRK8/YnMwuzzVP5tTyuv6X/+P5Ct/0y2eCRTutqGVDoZU5HMYrhBdI+q8Z9prshng/O4uEm+2geggi3ges7Y9Xsv0IsP0UjmXqitxwL3VSUh1YxEAabqhBU/4U9z5fq0TfFG2qnhZL/eThQMgQmQSEDR5BNyLrx6k5fiCnTpdTzLGPaYeK82OQ3XqpUjYLCod4c3lwmfTZGs454jqTxsG2LYkh72PHOkBrO8rhWH2Qb2uzSoAzPAt8uQ1jatzzYrqm2KwcRzf74K7yP+e58bsIXrO8Nr6W8zhTSigqo/ZvuHhORj5vmuA6PNp6Dzf7g7gtnKVBXsu+38CiFrKMUyEB9eDohP5h52FQuRHvZOcTw0JUggyvrBT51VzRAsDLV6NG17TDXXZBeVB1UVHalDSSnkwWw4Zm3+7MpyxNDYd0c=
+    travis_codacy: iZ5f963k8e5O9VNgQ2dSsHcoDCvuEfbW5/HBru3MtP3JASPxmZYtx3m9HrAi9GQq+//KVUNhjtOgcBXzKBNkOaoSDaum57jsrGvFCN8qS0P/E5jteuRoL0OU6141bPf+fywMymwVaKMxh4HcD4xD1wgDplXOQtqTfkUWz53AUc/+KrcpqiBaSpoAth+qAN4g2YVsvkMBi0La+Va9P4TB6QUrABzIsu7KS9GDH+ccdqwMqA3qjbNXvO+Ra7JuZvVXnh0hWmuuWEovc/dZDjp6SUa0QZYbmMYDeX6KIpS0xz2DqMnmTPbU/dMhYB4ZKqQZq1iY1z/E8W6AngDaGyp98FY6yaGlMkaXIybRKXmm09RNK29I3JcAjA7iFZXJ0ReBui+Un+uCd9YgomEDwALeDhdrK9zop4rxPAR4odd5gGpv3RkBx5ZUWO/053yGG6wRp+kz4DRS3JUFoiiq8xwKLjENOvm+GcoZ+2aFoPNP6OeHdqvxrMdRYXpbJEuGhF6utmYMTPX94/DoUrM0fish7z6nUfH5gLkpSzOrXaGHpa2JfwpsJufjGgP9nPAGk6WnklP+bBN+MqMl1GcDLcj7l9RkFZB7tR5pkhmdBJbWW30Vaw6SeDbUbj3YvOmLQqr3y6QYMKrqYLOhnUK/ZVhquQiJ+0qp6Voq6HG9TqObM0M=
