@@ -2,6 +2,6 @@ project: multi-job
 version: 0.10.15
 author: Joel Lefkowitz
 verbose_name: Multi job
-html_title: Multi job
-github_url: JoelLefkowitz/multi-job
+html_title: Multi job 
+github_url: https://github.com/JoelLefkowitz/multi-job
 apidoc_module_dir: multi_job
